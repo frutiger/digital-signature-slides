@@ -17,27 +17,78 @@
 <!-- Code syntax highlighting -->
 <link rel="stylesheet" href="solarized_light.css">
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]
+  },
+});
+</script>
 <!--[if lt IE 9]>
 <script src="lib/js/html5shiv.js"></script>
 <![endif]-->
+
+<style>
+img.fragment.hack {
+    display: none;
+}
+
+img.fragment.hack.current-fragment {
+    display: inline;
+}
+
+.right-math-block {
+    position: relative;
+    width: 80%; 
+}
+
+.right-math {
+    position: absolute;
+    right: 0px;
+}
+</style>
 </head>
 
 <body>
 <div class="reveal">
 <div class="slides">
 
-<section data-markdown><script type="text/template">
-## Digital Signatures
+<section>
+<h2>Digital Signatures</h2>
 
-<small>Created by [Masud Rahman](mailto:mrahman15@bloomberg.net)
-([bbgithub](https://github.com/frutiger))</small>
-</script></section>
+<small class="fragment">
+&mdash;
+<a href="mailto:mrahman15@bloomberg.net">Masud Rahman</a>
+(<a href="https://github.com/frutiger">github</a>)
+</small>
+</section>
 
-<section data-markdown><script type="text/template">
-## Thanks!
-## Questions?
-<!-- .element: class="fragment" -->
-</script></section>
+<section>
+<h2>What are they for?</h2>
+<ol>
+    <li>Authentication</li>
+    <li>Integrity</li>
+    <li>Non-repudiation</li>
+</ol>
+</section>
+
+<section>
+<h2>How do you use it?</h2>
+<span class="fragment hack current-fragment visible current-visible" style="position: absolute; width: 345.5px; height: 319px"></span>
+<img class="fragment hack current-visible" src="images/howtouse1.png" height="50%" width="50%">
+<img class="fragment hack current-visible" src="images/howtouse2.png" height="50%" width="50%">
+<img class="fragment hack current-visible" src="images/howtouse3.png" height="50%" width="50%">
+<img class="fragment hack current-visible" src="images/howtouse4.png" height="50%" width="50%">
+<img class="fragment hack current-visible" src="images/howtouse5.png" height="50%" width="50%">
+<img class="fragment hack current-visible" src="images/howtouse6.png" height="50%" width="50%">
+<img class="fragment hack current-visible" src="images/howtouse7.png" height="50%" width="50%">
+<img class="fragment hack current-visible" src="images/howtouse8.png" height="50%" width="50%">
+</section>
+
+<section>
+<h2>Thanks!</h2>
+<h2 class="fragment">Questions?</h2>
+</section>
 </div>
 </div>
 
@@ -72,5 +123,11 @@
     });
 </script>
 
+<script>
+    var fragments = document.getElementsByTagName('li');
+    [].forEach.call(fragments, function (elem) {
+        elem.classList.add('fragment');
+    });
+</script>
 </body>
 </html>
