@@ -208,6 +208,62 @@ img.fragment.hack.current-fragment {
 </section>
 
 <section>
+<h2>ElGamal Signature Scheme</h2>
+<ul>
+    <li>Invented by Tahir ElGamal in 1984</li>
+    <li>Agree on:
+        <ol>
+            <li>hashing algorithm $H(m)$</li>
+            <li>prime $p$</li>
+            <li>generator $g$ of $(\mathbb{Z}/p\mathbb{Z})^\times$</li>
+        </ol>
+    </li>
+</ul>
+</section>
+
+<section>
+<h2>Key generation</h2>
+<ul>
+    <li>Choose secret $x$ where $1 < x < p - 1$</li>
+    <li>Calculate public key $y = g^x \text{ (mod $p$)}$</li>
+</ul>
+</section>
+
+<section>
+<h2>Signing</h2>
+<ul>
+    <li>Choose random $k$ where:
+        <ol>
+            <li>$1 < k < p - 1$</li>
+            <li>$\text{gcd}(k,\ p - 1) = 1$</li>
+        </ol>
+    </li>
+    <li>Calculate:
+        <ol>
+            <li>$r = g^k \text{ (mod $p$)}$</li>
+            <li>Solve for $s$ in $H(m) = xr + ks \text{ (mod $p - 1$)}$:
+                <ul>
+                    <li>$s = (H(m) - xr)k^{-1} \text{ (mod $p$)}$</li>
+                    <li>possible because $\text{gcd}(k,\ p - 1) = 1$</li>
+                </ul>
+            </li>
+        </ol>
+    </li>
+    <li>If $s = 0$, start again</li>
+</ul>
+</section>
+
+<section>
+<h2>Verifying</h2>
+<ul>
+    <li>$H(m) = xr + ks\text{ (mod $p - 1$)}$</li>
+    <li>$g^{H(m)} = g^{xr} g^{ks}\text{ (mod $p$)}$</li>
+    <li>$g^{H(m)} = (g^x)^ r(g^k)^s\text{ (mod $p$)}$</li>
+    <li>$g^{H(m)} = y^r r^s\text{ (mod $p$)}$</li>
+</ul>
+</section>
+
+<section>
 <h2>Thanks!</h2>
 <h2 class="fragment">Questions?</h2>
 </section>
